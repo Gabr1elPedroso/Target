@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+public class EX3 {
+
+		    public static void main(String[] args) {
+		        ArrayList<DiaFaturamento> faturamentoDiario = new ArrayList<>();
+		        
+		        faturamentoDiario.add(new DiaFaturamento(1, 22174.1664));
+		        faturamentoDiario.add(new DiaFaturamento(2, 24537.6698));
+		        faturamentoDiario.add(new DiaFaturamento(3, 26139.6134));
+		        faturamentoDiario.add(new DiaFaturamento(4, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(5, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(6, 26742.6612));
+		        faturamentoDiario.add(new DiaFaturamento(7, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(8, 42889.2258));
+		        faturamentoDiario.add(new DiaFaturamento(9, 46251.174));
+		        faturamentoDiario.add(new DiaFaturamento(10, 11191.4722));
+		        faturamentoDiario.add(new DiaFaturamento(11, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(12, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(13, 3847.4823));
+		        faturamentoDiario.add(new DiaFaturamento(14, 373.7838));
+		        faturamentoDiario.add(new DiaFaturamento(15, 2659.7563));
+		        faturamentoDiario.add(new DiaFaturamento(16, 48924.2448));
+		        faturamentoDiario.add(new DiaFaturamento(17, 18419.2614));
+		        faturamentoDiario.add(new DiaFaturamento(18, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(19, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(20, 35240.1826));
+		        faturamentoDiario.add(new DiaFaturamento(21, 43829.1667));
+		        faturamentoDiario.add(new DiaFaturamento(22, 18235.6852));
+		        faturamentoDiario.add(new DiaFaturamento(23, 4355.0662));
+		        faturamentoDiario.add(new DiaFaturamento(24, 13327.1025));
+		        faturamentoDiario.add(new DiaFaturamento(25, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(26, 0.0));
+		        faturamentoDiario.add(new DiaFaturamento(27, 25681.8318));
+		        faturamentoDiario.add(new DiaFaturamento(28, 1718.1221));
+		        faturamentoDiario.add(new DiaFaturamento(29, 13220.495));
+		        faturamentoDiario.add(new DiaFaturamento(30, 8414.61));
+		        
+		        double menorFaturamento = Double.MAX_VALUE;
+		        double maiorFaturamento = Double.MIN_VALUE;
+		        double somaFaturamento = 0.0;
+		        int diasComFaturamento = 0;
+		        
+		        for (DiaFaturamento dia : faturamentoDiario) {
+		            if (dia.valor > 0) {
+		                if (dia.valor < menorFaturamento) {
+		                    menorFaturamento = dia.valor;
+		                }
+		                if (dia.valor > maiorFaturamento) {
+		                    maiorFaturamento = dia.valor;
+		                }
+		                somaFaturamento += dia.valor;
+		                diasComFaturamento++;
+		            }
+		        }
+
+		        double mediaMensal = somaFaturamento / diasComFaturamento;
+		        
+		        int diasAcimaDaMedia = 0;
+		        for (DiaFaturamento dia : faturamentoDiario) {
+		            if (dia.valor > mediaMensal) {
+		                diasAcimaDaMedia++;
+		            }
+		        }
+		        
+		        System.out.printf("Menor valor de faturamento: %.2f\n", menorFaturamento);
+		        System.out.printf("Maior valor de faturamento: %.2f\n", maiorFaturamento);
+		        System.out.printf("Número de dias com faturamento acima da média: %d\n", diasAcimaDaMedia);
+		    }
+		}
+
+		class DiaFaturamento {
+		    int dia;
+		    double valor;
+
+		    DiaFaturamento(int dia, double valor) {
+		        this.dia = dia;
+		        this.valor = valor;
+		    }
+		}
+
+
+	
+
+
